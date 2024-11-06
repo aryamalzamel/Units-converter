@@ -1,0 +1,304 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Baloo Bhaijaan 2";
+}
+
+nav{
+position: fixed;
+right: 0;
+top: 0;
+z-index: 500;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 20px 3%;
+transition: 0.3s;
+background: linear-gradient(130deg, rgb(191 25 162) 10%, rgb(201 99 179) 50%, rgb(222 133 202) 100%);
+}
+
+#navList{
+display: flex;
+direction: ltr;
+}
+
+.pages a{
+  color: #ffff;
+  margin-left: 30px;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 3px solid transparent;
+  transition: all 0.6s ;
+}
+
+.pages a:hover{
+  border-bottom: 3px solid #ffff;
+}
+
+.menu-icon{
+  display: none;
+  z-index: 600;
+  cursor: pointer;
+}
+
+#bar1, #bar2, #bar3{
+  width: 35px;
+  height: 5px;
+  background-color: #ffff;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+  
+.container{
+  width:100%;
+  height: 100%;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+  '. mol mol length length weight weight luminous luminous .'
+  '. . ampere ampere temprature temprature time time . .'
+  ;
+  align-items: center;
+  justify-items: center;
+  margin-top:8.7%;
+}
+
+.card {
+  width: 220px;
+  height: 330px;
+  background: #fff; 
+  border-top-right-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 14px 26px rgba(0,0,0,0.04);
+  transition: all 0.3s ease-out;
+  text-decoration: none;
+}
+  
+.card:hover {
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 0 24px 36px rgba(0,0,0,0.11), 0 24px 46px var(--box-shadow-color);
+}
+  
+.card:hover .overlay {
+  transform: scale(4) translateZ(0);
+}
+  
+.card:hover .circle {
+  border-color: var(--bg-color-light);
+  background: var(--bg-color-light);
+}
+  
+.card:active {
+  transform: scale(1) translateZ(0);
+  box-shadow: 0 15px 24px rgba(0,0,0,0.11), 0 15px 24px var(--box-shadow-color);
+}
+  
+.card p {
+  font-size: 17px;
+  color: #4C5656;
+  margin-top: 30px;
+  z-index: 100;
+  transition: color 0.3s ease-out;
+}
+  
+.circle {
+  width: 135px;
+  height: 135px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s ease-out;
+}
+  
+.circle:after {
+  width: 118px;
+  height: 118px;
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  top: 7px;
+  left: 7px;
+  transition: opacity 0.3s ease-out;
+}
+ 
+.overlay {
+  width: 118px;
+  position: absolute; 
+  height: 118px;
+  border-radius: 50%;
+  background: var(--bg-color);
+  top: 70px;
+  left: 50px;
+  z-index: 0;
+  transition: transform 0.3s ease-out;
+}
+  
+.mol {
+  grid-area: mol;
+  --bg-color: #ffd861;
+  --bg-color-light: #fff5d7;
+  --box-shadow-color: rgba(255, 215, 97, 0.48);
+}
+   
+.length {
+  grid-area: length
+  ;
+  --bg-color: #93b6f4;
+  --bg-color-light: #d2e0f3;
+  --box-shadow-color: rgba(220, 233, 255, 0.48);
+}
+  
+.time {
+  grid-area: time;
+  --bg-color: #CEB2FC;
+  --bg-color-light: #F0E7FF;
+  --box-shadow-color: rgba(206, 178, 252, 0.48);
+}
+  
+.cd {
+  grid-area: luminous;
+  --bg-color: #BEDC88;
+  --bg-color-light: #f2ffd9;
+  --box-shadow-color: #dff1bd;
+}
+  
+.Ampere {
+  grid-area: ampere;
+  --bg-color: #f9b8e0;
+  --bg-color-light: #fff0f9;
+  --box-shadow-color: #eeafd6;
+}
+  
+.temp {
+  grid-area: temprature;
+  --bg-color: #f9b09b;
+  --bg-color-light: #f9e4de;
+  --box-shadow-color: #fbdad0;
+}
+  
+.wight {
+  grid-area: weight;
+  --bg-color: #ACD8C8;
+  --bg-color-light: #ecfff8;
+  --box-shadow-color: #e5fff5;
+}
+
+@media (max-width: 1170px){
+  .container{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      '. mol length weight  .'
+      '. luminous . ampere .'
+      '. temprature . time .'
+    ;
+    margin-top: 20%;
+  }
+
+}
+
+@media (max-width:860px){
+  .menu-icon {
+    display: inline-block;
+  }
+  .menu-after #bar1{
+    transform: translate(0,11px) rotate(-45deg);
+  }
+  .menu-after #bar2{
+    opacity: 0;
+  }
+  .menu-after #bar3{
+    transform: translate(0,-11px) rotate(45deg);
+  }
+    
+  #navList{
+    position: absolute;
+    top: 20%;
+    right: -100%;
+    width: 300px;
+    height: 50vh;
+    background: #041727;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px 20px;
+    transition: all 0.5s;
+  }
+    
+  .pages a{
+    display: block;
+    margin: 10px 0;
+  }
+    
+  #navList.openMenuList{
+    right: 0;
+  }
+
+  .container{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      'mol length'
+      'weight luminous'
+      'ampere temprature'
+      'time time'
+    ;
+    margin-top: 20%;
+  }
+}
+
+@media (max-width: 670px){
+  .container{
+    margin-top: 25%;
+  }
+}
+
+@media (max-width:540px){
+  .container{
+    margin-top: 30%;
+  }
+}
+
+@media (max-width: 490px){
+  .container{
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      'mol' 
+      'length'
+      'weight'
+      'luminous'
+      'ampere'
+      'temprature'
+      'time'
+    ;
+    margin-top: 35%;
+  }
+
+}
+
+@media (max-width:420px){
+  .container{
+    margin-top: 40%;
+  }
+}
+
+@media (max-width:350px){
+  .container{
+    margin-top: 45%;
+  }
+}
